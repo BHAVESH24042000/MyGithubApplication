@@ -1,4 +1,4 @@
-package com.example.myapplication.api.datsModels.commits
+package com.example.myapplication.api.dataModels.commits
 
 
 import com.squareup.moshi.Json
@@ -9,7 +9,7 @@ data class Commit(
     @Json(name = "author")
     val author: AuthorX?,
     @Json(name = "comment_count")
-    val commentCount: Int,
+    val commentCount: Int?,
 
     @Json(name = "message")
     val message: String?

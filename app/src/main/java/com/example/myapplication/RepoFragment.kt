@@ -1,10 +1,13 @@
 package com.example.myapplication
 
+
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -20,11 +23,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RepoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class RepoFragment : Fragment() {
 
 
@@ -76,6 +75,8 @@ class RepoFragment : Fragment() {
         _binding?.deleteRepo?.setOnClickListener {
             deleteRepo()
             super.getActivity()?.onBackPressed()
+
+
             //requireActivity().finish()
         }
 
@@ -98,11 +99,20 @@ class RepoFragment : Fragment() {
 
         }
 
+        _binding?.browser?.setOnClickListener {
+
+            var url="https://github.com/$owner/$RepoName"
+            var builder = CustomTabsIntent.Builder()
+            var customTabsIntent :CustomTabsIntent  = builder.build()
+            customTabsIntent.launchUrl(requireContext(), Uri.parse(url))
+
+        }
+
     }
 
     fun deleteRepo(){
         GlobalScope.launch(Dispatchers.Main) {
-            val id = withContext(Dispatchers.IO) {
+           withContext(Dispatchers.IO) {
                 return@withContext db.todoDao().deleteRepo(Id)
             }
 

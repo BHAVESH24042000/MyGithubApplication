@@ -10,7 +10,7 @@ import androidx.lifecycle.*
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.api.datsModels.branches.BranchesItem
+import com.example.myapplication.api.dataModels.branches.BranchesItem
 import com.example.myapplication.api.repoCall
 import com.example.myapplication.databinding.FragmentBranchesBinding
 import kotlinx.coroutines.*
@@ -22,8 +22,7 @@ class BranchesFragment : Fragment() {
     var owner:String?=null
 
     lateinit var branchesRv: RecyclerView
-    //private val _feed= MutableLiveData<RepoModel>()
-    //val list2: LiveData<RepoModel> =_feed
+
 
     val list = arrayListOf<BranchesItem>()
     lateinit  var adapter:BranchAdapter
@@ -54,7 +53,7 @@ class BranchesFragment : Fragment() {
 
 
         lifecycleScope.launch(Dispatchers.Main) {
-            val id = withContext(Dispatchers.IO) {
+             withContext(Dispatchers.IO) {
             repoCall.getBranches(owner,RepoName).let {
                 CoroutineScope(Dispatchers.Main).launch {
                     list.clear()

@@ -1,4 +1,4 @@
-package com.example.myapplication.api.datsModels.repo
+package com.example.myapplication.api.dataModels.repo
 
 
 import com.squareup.moshi.Json
@@ -14,12 +14,8 @@ data class Repo(
     val fullName: String?,
 
         @Json(name = "name")
-    val name: String?,
+    val name: String?
 
-        @Json(name = "organization")
-    val organization: Organization?,
 
-        @Json(name = "owner")
-    val owner: Owner?
 
 )

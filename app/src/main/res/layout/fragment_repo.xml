@@ -19,8 +19,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
+                android:layout_height="wrap_content">
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbarAddTask"
@@ -39,15 +38,31 @@
                     android:id="@+id/deleteRepo"
                     android:layout_width="52dp"
                     android:layout_height="45dp"
-                    android:layout_marginEnd="48dp"
+
                     android:backgroundTint="@color/purple_500"
                     android:clickable="true"
 
                     android:src="@drawable/baseline_delete_white_24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/toolbarAddTask"
+                    app:layout_constraintEnd_toEndOf="@id/browser"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="1.0" />
+
+                <ImageButton
+                    android:id="@+id/browser"
+                    android:layout_width="52dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:clickable="true"
+                    android:src="@drawable/baseline_remove_red_eye_white_24dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/deleteRepo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

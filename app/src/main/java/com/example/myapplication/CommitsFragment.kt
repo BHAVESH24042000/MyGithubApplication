@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.api.datsModels.commits.CommitsItem
+import com.example.myapplication.api.dataModels.commits.CommitsItem
 import com.example.myapplication.api.repoCall
 import com.example.myapplication.databinding.FragmentCommitsBinding
 import kotlinx.coroutines.CoroutineScope
@@ -17,11 +17,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CommitsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class CommitsFragment : Fragment() {
     var RepoName:String?=null
     var owner:String?=null
@@ -59,11 +55,13 @@ class CommitsFragment : Fragment() {
 
 
         lifecycleScope.launch(Dispatchers.Main) {
-            val id = withContext(Dispatchers.IO) {
+           withContext(Dispatchers.IO) {
                 repoCall.getCommits(owner,RepoName,branchname).let {
                     CoroutineScope(Dispatchers.Main).launch {
                         list.clear()
-                        list.addAll(it)
+                        if (it != null) {
+                            list.addAll(it)
+                        }
                         adapter.notifyDataSetChanged()
                     }
                 }

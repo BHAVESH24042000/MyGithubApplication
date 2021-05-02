@@ -8,7 +8,8 @@
     android:padding="10dp"
     android:layout_marginBottom="10dp"
     android:clickable="true"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
+    android:background="@drawable/border">
 
     <View
         android:id="@+id/viewColorTag"

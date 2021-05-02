@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -7,12 +8,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.api.datsModels.branches.BranchesItem
+import com.example.myapplication.api.dataModels.branches.BranchesItem
+
 
 lateinit var txtBranchName: TextView
-
-
-
 class BranchAdapter(val list:List<BranchesItem>, val listener:(String?)->Unit): RecyclerView.Adapter<BranchViewHolder>() {
 
 

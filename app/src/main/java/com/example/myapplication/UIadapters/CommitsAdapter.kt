@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.myapplication.api.datsModels.commits.CommitsItem
+import com.example.myapplication.api.dataModels.commits.CommitsItem
 
 lateinit var username: TextView
 lateinit var date: TextView

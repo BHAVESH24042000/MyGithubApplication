@@ -8,9 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.myapplication.api.datsModels.Issues.IssuesItem
-import com.example.myapplication.api.datsModels.commits.CommitsItem
+import com.example.myapplication.api.dataModels.Issues.IssuesItem
 
 lateinit var author: TextView
 lateinit var title: TextView

@@ -1,4 +1,4 @@
-package com.example.myapplication.api.datsModels.commits
+package com.example.myapplication.api.dataModels.commits
 
 
 import com.squareup.moshi.Json
@@ -9,7 +9,7 @@ data class AuthorX(
     @Json(name = "date")
     val date: String?,
     @Json(name = "email")
-    val email: String,
+    val email: String?,
     @Json(name = "name")
     val name: String?
 )

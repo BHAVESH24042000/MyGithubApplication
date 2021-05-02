@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:clickable="true"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@drawable/border">
 
     <ImageView
         android:id="@+id/avatarImageView"

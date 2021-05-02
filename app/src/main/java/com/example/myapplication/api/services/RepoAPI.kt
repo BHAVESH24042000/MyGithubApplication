@@ -1,9 +1,9 @@
 package com.example.myapplication.api.services
 
-import com.example.myapplication.api.datsModels.Issues.IssuesItem
-import com.example.myapplication.api.datsModels.branches.BranchesItem
-import com.example.myapplication.api.datsModels.commits.CommitsItem
-import com.example.myapplication.api.datsModels.repo.Repo
+import com.example.myapplication.api.dataModels.Issues.IssuesItem
+import com.example.myapplication.api.dataModels.branches.BranchesItem
+import com.example.myapplication.api.dataModels.commits.CommitsItem
+import com.example.myapplication.api.dataModels.repo.Repo
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -22,7 +22,7 @@ interface RepoAPI {
     suspend fun getBranches(
             @Path("owner") owner: String? = null,
             @Path("repo") repo: String? = null
-    ):Response<List<BranchesItem>>
+    ):Response<List<BranchesItem>?>
 
 
     @GET("repos/{owner}/{repo}/commits")
@@ -30,13 +30,13 @@ interface RepoAPI {
             @Path("owner") owner: String? = null,
             @Path("repo") repo: String? = null,
             @Query("sha")sha:String?=null
-    ):Response<List<CommitsItem?>>
+    ):Response<List<CommitsItem?>?>
 
     @GET("repos/{owner}/{repo}/issues")
     suspend fun getIssues(
         @Path("owner") owner: String? = null,
         @Path("repo") repo: String? = null,
         @Query("state")state:String?=null
-    ):Response<List<IssuesItem?>>
+    ):Response<List<IssuesItem?>?>
 
 }
